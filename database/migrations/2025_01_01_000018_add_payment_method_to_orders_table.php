@@ -9,7 +9,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->enum('payment_method', ['card', 'cash', 'paypal'])->collation('utf8mb4_unicode_ci')->after('total');
+            $column = $table->enum('payment_method', ['card', 'cash', 'paypal'])->after('total');
+
+            if (Schema::getConnection()->getDriverName() !== 'sqlite') {
+                $column->collation('utf8mb4_unicode_ci');
+            }
         });
     }
 

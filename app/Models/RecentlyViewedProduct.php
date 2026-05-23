@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class RecentlyViewedProduct extends Model
 {
     public $timestamps = false;
+
     protected $table = 'recently_viewed_products';
 
     protected $fillable = ['user_id', 'product_id', 'viewed_at'];

@@ -1,0 +1,197 @@
+import { Form, Head, Link } from '@inertiajs/react';
+import InputError from '@/components/input-error';
+import PasswordInput from '@/components/password-input';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
+import { Mail, Lock, ArrowRight, Truck, Shield, RefreshCw, Sparkles } from 'lucide-react';
+import LandingNavigation from '@/components/landing-navigation';
+import LandingFooter from '@/components/landing-footer';
+
+interface NavCategory {
+    id: number;
+    name: string;
+    slug: string;
+}
+
+type Props = {
+    status?: string;
+    canResetPassword: boolean;
+    canRegister: boolean;
+    navCategories: NavCategory[];
+};
+
+const features = [
+    { icon: Truck, title: 'Free Shipping', desc: 'On orders over $150' },
+    { icon: Shield, title: 'Secure Checkout', desc: '100% protected payments' },
+    { icon: RefreshCw, title: 'Easy Returns', desc: '30-day return policy' },
+];
+
+export default function CustomerLogin({ status, canResetPassword, canRegister, navCategories }: Props) {
+    return (
+        <>
+            <Head title="Sign In - GizmoGrid" />
+
+            <div className="min-h-screen bg-[#FAF8F5] text-[#1A1A1A]">
+                <LandingNavigation canRegister={canRegister} categories={navCategories} />
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        {/* Login Form */}
+                        <div className="order-2 lg:order-1">
+                            <div className="max-w-md mx-auto lg:mx-0">
+                                <div className="mb-8">
+                                    <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Welcome back</h1>
+                                    <p className="text-gray-600">Sign in to your GizmoGrid account</p>
+                                </div>
+
+                                {status && (
+                                    <div className="mb-6 rounded-xl bg-green-50 border border-green-200 p-4 text-sm font-medium text-green-700">
+                                        {status}
+                                    </div>
+                                )}
+
+                                <Form
+                                    method="post"
+                                    action="/login"
+                                    resetOnSuccess={['password']}
+                                    className="space-y-5"
+                                >
+                                    {({ processing, errors }) => (
+                                        <>
+                                            <div className="space-y-4">
+                                                <div className="space-y-2">
+                                                    <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email address</Label>
+                                                    <div className="relative">
+                                                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                                                        <Input
+                                                            id="email"
+                                                            type="email"
+                                                            name="email"
+                                                            required
+                                                            autoFocus
+                                                            autoComplete="email"
+                                                            placeholder="email@example.com"
+                                                            className="pl-10 h-12 rounded-xl border-gray-200 bg-white text-gray-900 focus:border-orange-500 focus:ring-orange-500/20"
+                                                        />
+                                                    </div>
+                                                    <InputError message={errors.email} />
+                                                </div>
+
+                                                <div className="space-y-2">
+                                                    <div className="flex items-center justify-between">
+                                                        <Label htmlFor="password" className="text-sm font-medium text-gray-700">Password</Label>
+                                                        {canResetPassword && (
+                                                            <Link
+                                                                href="/forgot-password"
+                                                                className="text-sm text-orange-500 hover:text-orange-600 font-medium"
+                                                            >
+                                                                Forgot password?
+                                                            </Link>
+                                                        )}
+                                                    </div>
+                                                    <div className="relative">
+                                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                                                        <PasswordInput
+                                                            id="password"
+                                                            name="password"
+                                                            required
+                                                            autoComplete="current-password"
+                                                            placeholder="Enter your password"
+                                                            className="pl-10 h-12 rounded-xl border-gray-200 bg-white text-gray-900 focus:border-orange-500 focus:ring-orange-500/20"
+                                                        />
+                                                    </div>
+                                                    <InputError message={errors.password} />
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-center space-x-2">
+                                                <Checkbox
+                                                    id="remember"
+                                                    name="remember"
+                                                    className="rounded-md border-gray-200 text-orange-500 focus:ring-orange-500"
+                                                />
+                                                <Label htmlFor="remember" className="text-sm text-gray-600">Remember me</Label>
+                                            </div>
+
+                                            <Button
+                                                type="submit"
+                                                className="w-full h-12 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-medium shadow-lg shadow-orange-500/25 transition-all duration-300"
+                                                disabled={processing}
+                                            >
+                                                {processing ? (
+                                                    <Spinner />
+                                                ) : (
+                                                    <>
+                                                        Sign in
+                                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                                    </>
+                                                )}
+                                            </Button>
+                                        </>
+                                    )}
+                                </Form>
+
+                                {canRegister && (
+                                    <div className="mt-6 text-center text-sm text-gray-500">
+                                        Don't have an account?{' '}
+                                        <Link href="/customer/register" className="text-orange-500 hover:text-orange-600 font-semibold">
+                                            Sign up for free
+                                        </Link>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Features Panel */}
+                        <div className="order-1 lg:order-2 hidden lg:block">
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl" />
+                                <div className="absolute inset-0 opacity-10" style={{
+                                    backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+                                    backgroundSize: '40px 40px'
+                                }} />
+
+                                <div className="relative z-10 p-12 text-white">
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8">
+                                        <Sparkles className="h-4 w-4" />
+                                        <span className="text-sm font-medium">Why join GizmoGrid?</span>
+                                    </div>
+
+                                    <h2 className="text-4xl font-bold leading-tight mb-4">
+                                        Shop smarter,<br />
+                                        <span className="text-orange-100">live better</span>
+                                    </h2>
+                                    <p className="text-lg text-orange-100/80 mb-10">
+                                        Get access to exclusive deals, order tracking, and a personalized shopping experience.
+                                    </p>
+
+                                    <div className="space-y-4">
+                                        {features.map((feature, index) => {
+                                            const Icon = feature.icon;
+                                            return (
+                                                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                                                    <div className="h-12 w-12 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                                                        <Icon className="h-6 w-6" />
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold">{feature.title}</p>
+                                                        <p className="text-sm text-orange-100/70">{feature.desc}</p>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <LandingFooter />
+            </div>
+        </>
+    );
+}

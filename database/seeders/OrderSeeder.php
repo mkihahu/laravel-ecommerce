@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\User;
 use App\Models\Product;
-use App\Models\Address;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 class OrderSeeder extends Seeder
 {
@@ -57,7 +57,7 @@ class OrderSeeder extends Seeder
             $order = Order::create([
                 'user_id' => $user->id,
                 'address_id' => $address?->id ?? 1,
-                'order_number' => 'ORD-' . strtoupper(Str::random(8)),
+                'order_number' => 'ORD-'.strtoupper(Str::random(8)),
                 'subtotal' => $subtotal,
                 'discount' => $discount,
                 'shipping_fee' => $shippingFee,

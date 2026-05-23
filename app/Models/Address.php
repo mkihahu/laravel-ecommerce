@@ -9,7 +9,7 @@ class Address extends Model
 {
     protected $fillable = [
         'user_id', 'full_name', 'email', 'phone', 'country', 'city', 'state',
-        'zip_code', 'address_line_1', 'address_line_2', 'type', 'is_default'
+        'zip_code', 'address_line_1', 'address_line_2', 'type', 'is_default',
     ];
 
     protected function casts(): array

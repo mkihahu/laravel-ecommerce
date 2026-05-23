@@ -14,7 +14,7 @@ export default function Appearance() {
                 <Heading
                     variant="small"
                     title="Appearance settings"
-                    description="Update the appearance settings for your account"
+                    description="Update your account's appearance settings"
                 />
                 <AppearanceTabs />
             </div>

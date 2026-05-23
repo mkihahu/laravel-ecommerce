@@ -16,7 +16,7 @@ class BannerSeeder extends Seeder
                 'image' => 'banners/summer-sale.jpg',
                 'button_text' => 'Shop Now',
                 'button_link' => '/products?category=smartphones',
-                'status' => 'active'
+                'status' => 'active',
             ],
             [
                 'title' => 'New Arrivals',
@@ -24,7 +24,7 @@ class BannerSeeder extends Seeder
                 'image' => 'banners/new-arrivals.jpg',
                 'button_text' => 'Explore',
                 'button_link' => '/products?sort=newest',
-                'status' => 'active'
+                'status' => 'active',
             ],
             [
                 'title' => 'Premium Audio',
@@ -32,7 +32,7 @@ class BannerSeeder extends Seeder
                 'image' => 'banners/audio-sale.jpg',
                 'button_text' => 'View Deals',
                 'button_link' => '/products?category=audio',
-                'status' => 'active'
+                'status' => 'active',
             ],
         ];
 

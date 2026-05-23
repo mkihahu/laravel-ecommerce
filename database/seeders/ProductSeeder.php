@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Experience the future of smartphones with Samsung Galaxy S24 Ultra featuring advanced AI capabilities.',
                 'price' => 1199.99, 'sale_price' => 1099.99, 'stock' => 50,
                 'thumbnail' => 'products/samsung-s24.jpg', 'weight' => 0.232, 'warranty' => '1 Year',
-                'featured' => true, 'status' => 'active', 'views' => 1000
+                'featured' => true, 'status' => 'active', 'views' => 1000,
             ],
             [
                 'category_id' => 1, 'brand_id' => 1, 'name' => 'iPhone 15 Pro Max',
@@ -27,7 +27,7 @@ class ProductSeeder extends Seeder
                 'description' => 'The most powerful iPhone ever with titanium design and advanced camera system.',
                 'price' => 1199.00, 'sale_price' => null, 'stock' => 30,
                 'thumbnail' => 'products/iphone-15.jpg', 'weight' => 0.221, 'warranty' => '1 Year',
-                'featured' => true, 'status' => 'active', 'views' => 1500
+                'featured' => true, 'status' => 'active', 'views' => 1500,
             ],
             [
                 'category_id' => 2, 'brand_id' => 5, 'name' => 'Dell XPS 15',
@@ -36,7 +36,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Dell XPS 15 features a beautiful 15.6-inch display and powerful performance.',
                 'price' => 1899.99, 'sale_price' => 1699.99, 'stock' => 20,
                 'thumbnail' => 'products/dell-xps.jpg', 'weight' => 1.85, 'warranty' => '2 Year',
-                'featured' => true, 'status' => 'active', 'views' => 800
+                'featured' => true, 'status' => 'active', 'views' => 800,
             ],
             [
                 'category_id' => 3, 'brand_id' => 1, 'name' => 'iPad Pro 12.9',
@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
                 'description' => 'The most advanced iPad ever with M2 chip and Liquid Retina XDR display.',
                 'price' => 1099.00, 'sale_price' => null, 'stock' => 25,
                 'thumbnail' => 'products/ipad-pro.jpg', 'weight' => 0.682, 'warranty' => '1 Year',
-                'featured' => true, 'status' => 'active', 'views' => 600
+                'featured' => true, 'status' => 'active', 'views' => 600,
             ],
             [
                 'category_id' => 4, 'brand_id' => 7, 'name' => 'Bose QuietComfort Ultra',
@@ -54,7 +54,7 @@ class ProductSeeder extends Seeder
                 'description' => 'World-class noise cancellation and immersive audio experience.',
                 'price' => 429.00, 'sale_price' => 379.00, 'stock' => 40,
                 'thumbnail' => 'products/bose-qc.jpg', 'weight' => 0.250, 'warranty' => '2 Year',
-                'featured' => true, 'status' => 'active', 'views' => 900
+                'featured' => true, 'status' => 'active', 'views' => 900,
             ],
             [
                 'category_id' => 5, 'brand_id' => 8, 'name' => 'Canon EOS R6 Mark II',
@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
                 'description' => 'Professional full-frame mirrorless camera with advanced features.',
                 'price' => 2499.00, 'sale_price' => null, 'stock' => 10,
                 'thumbnail' => 'products/canon-r6.jpg', 'weight' => 0.670, 'warranty' => '2 Year',
-                'featured' => true, 'status' => 'active', 'views' => 400
+                'featured' => true, 'status' => 'active', 'views' => 400,
             ],
         ];
 

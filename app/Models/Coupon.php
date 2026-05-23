@@ -9,7 +9,7 @@ class Coupon extends Model
 {
     protected $fillable = [
         'code', 'type', 'value', 'minimum_amount', 'usage_limit',
-        'used_count', 'starts_at', 'expires_at', 'status'
+        'used_count', 'starts_at', 'expires_at', 'status',
     ];
 
     protected function casts(): array

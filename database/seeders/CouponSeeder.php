@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Coupon;
-use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class CouponSeeder extends Seeder
 {
@@ -20,7 +20,7 @@ class CouponSeeder extends Seeder
                 'used_count' => 0,
                 'starts_at' => Carbon::now(),
                 'expires_at' => Carbon::now()->addMonths(3),
-                'status' => 'active'
+                'status' => 'active',
             ],
             [
                 'code' => 'SAVE50',
@@ -31,7 +31,7 @@ class CouponSeeder extends Seeder
                 'used_count' => 5,
                 'starts_at' => Carbon::now(),
                 'expires_at' => Carbon::now()->addMonth(),
-                'status' => 'active'
+                'status' => 'active',
             ],
             [
                 'code' => 'FREESHIP',
@@ -42,7 +42,7 @@ class CouponSeeder extends Seeder
                 'used_count' => 20,
                 'starts_at' => Carbon::now(),
                 'expires_at' => Carbon::now()->addMonths(2),
-                'status' => 'active'
+                'status' => 'active',
             ],
         ];
 
